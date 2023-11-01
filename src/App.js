@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Form from './Components/Form'
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
+  const [dataArr,setDataArr] = useState([
+    {txt:'Sport',id:uuidv4()},
+    {txt:'Watch Film',id:uuidv4()},
+    
+  ])
+
+  /***********input***************/
+  const [valtxt,setvaltxt]=useState('');
+
+  const modifytxt = (e) =>{
+    setvaltxt(e.target.value)
+  }
+
+
+//maper le tableau des taches dans chaque li
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Form></Form>
+
+      
+
+      
     </div>
   );
 }
